@@ -1,17 +1,8 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
     <!-- after  we adding static file -->
     {% load staticfiles %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Aseel Alawadh Ex · Bootstrap</title>
-
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet"
@@ -19,10 +10,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
 
-<link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
-
-
-
+    <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -39,16 +27,12 @@
             }
         }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
 </head>
 <body>
 <header>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'logo.png' %}" height="30" width="
 30" class="d-inline-block align-top">
                 Product Hunt</a>
@@ -62,18 +46,16 @@
 
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                             <a class="nav-link" href="{% url 'create' %}"><span class="oi oi-plus"></span></a>
+                            <a class="nav-link" href="{% url 'create' %}"><span
+                                    class="oi oi-plus"></span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                href="javascript:{document.getElementById('logout').submit()}">Logout</a>
                             <form id="logout" method="POST" action="{% url 'logout' %}">
-
                                 {% csrf_token %}
                                 <input type="hidden"/>
-
                             </form>
-
                         </li>
                     {% else %}
                         <li class="nav-item active">
